@@ -54,8 +54,8 @@ public class Initialization implements CommandLineRunner {
 		
 		postReposiroty.saveAll(Arrays.asList(post1, post2));
 		
-//		maria.getPosts().addAll(Arrays.asList(post1, post2));
-//		userReposiroty.save(maria);
+		maria.getPosts().addAll(Arrays.asList(post1, post2));
+		userRepository.save(maria);
 	}
 
 }
