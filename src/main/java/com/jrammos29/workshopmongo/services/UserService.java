@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.jrammos29.workshopmongo.domain.User;
 //import com.jrammos29.workshopmongo.dto.UserDTO;
 import com.jrammos29.workshopmongo.repositories.UserRepository;
+import com.jrammos29.workshopmongo.services.exceptions.ObjectNotFoundException;
 //import com.jrammos29.workshopmongo.services.exception.ObjectNotFoundException;
 
 @Service
@@ -21,11 +22,10 @@ public class UserService {
 		return repo.findAll();
 	}
 
-//	public User findById(String id) {
-//		Optional<User> obj = repo.findById(id);
-////		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
-//		return obj.get();
-//	}
+	public User findById(String id) {
+		Optional<User> obj = repo.findById(id);
+		return obj.orElseThrow(() -> new ObjectNotFoundException("Object not found."));
+	}
 
 //	public User insert(User obj) {
 //		return repo.insert(obj);
